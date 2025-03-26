@@ -14,6 +14,7 @@ This project is a simple implementation of a **Chain-of-Thought (CoT) reasoning 
 4. **Gemini synthesizes a final answer** from all the step-wise explanations
 
 You can toggle between:
+
 - ✅ **CoT + RAG**: with document-based context
 - 🧠 **Pure CoT**: no documents, no distractions
 
@@ -21,13 +22,13 @@ You can toggle between:
 
 ## 🧱 Tech Stack
 
-| Component              | Description |
-|------------------------|-------------|
-| 🧠 Gemini API           | Google's GenAI model (via `google-generativeai`) for reasoning and explanation |
-| 📦 FAISS               | In-memory vector search for document retrieval |
-| 🔐 python-dotenv       | Load Gemini API key from `.env` |
-| 🐍 Python              | Core programming language |
-| 📂 SimpleVectorDB      | Minimal vector database for storing and retrieving documents |
+| Component         | Description                                                                      |
+| ----------------- | -------------------------------------------------------------------------------- |
+| 🧠 Gemini API     | Google's GenAI model (via `google-generativeai`) for reasoning and explanation |
+| 📦 FAISS          | In-memory vector search for document retrieval                                   |
+| 🔐 python-dotenv  | Load Gemini API key from `.env`                                                |
+| 🐍 Python         | Core programming language                                                        |
+| 📂 SimpleVectorDB | Minimal vector database for storing and retrieving documents                     |
 
 ---
 
@@ -42,6 +43,7 @@ You can toggle between:
 │   ├── pipeline.py        # CoT + RAG logic (break, explain, synthesize)
 ├── .env                   # API key file
 ├── requirements.txt
+├── cot-out.md             # Output
 └── README.md
 ```
 
@@ -50,25 +52,32 @@ You can toggle between:
 ## 🛠 Setup Instructions
 
 1. **Install dependencies**
+
 ```bash
 pip install -r requirements.txt
 ```
 
 2. **Set your Gemini API key**
-Create a `.env` file as per `template.env`:
+   Create a `.env` file as per `template.env`:
+
 ```
 GOOGLE_API_KEY=your-api-key-here
 ```
 
 3. **Run the app**
+
 ```bash
 python main.py
 ```
 
 4. **Ask anything!**
+
 ```
 Ask Anything? Why does the moon appear to change shape?
 ```
+
+5. **Response in Markdown**
+will be stored at `cot-out.md`
 
 ---
 
@@ -97,7 +106,8 @@ Feel free to reach out or fork for improvements!
 ---
 
 ## To-Do
-* [ ] Saving Responses in Markdown format
+
+* [x] Saving Responses in Markdown format
 * [ ] Some way to Benchmark the Generations
 * [ ] UI/UX for general use
 * [ ] Document Splitter and Other Document Handling functions
