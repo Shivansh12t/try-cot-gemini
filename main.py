@@ -26,19 +26,19 @@ def run_chain_of_thought_rag(problem, vector_db):
 
 
 # small cpu based vector db, can be used to store relevant docs for context
-docs = [
-    "The moon's phases are caused by its position relative to the Earth and Sun.",
-    "As the moon orbits Earth, different parts are illuminated by sunlight.",
-    "Half the moon is always lit by the Sun, but we see varying parts from Earth.",
-    "The lunar cycle takes about 29.5 days."
-]
+# docs = [
+#     "The moon's phases are caused by its position relative to the Earth and Sun.",
+#     "As the moon orbits Earth, different parts are illuminated by sunlight.",
+#     "Half the moon is always lit by the Sun, but we see varying parts from Earth.",
+#     "The lunar cycle takes about 29.5 days."
+# ]
 
 db = SimpleVectorDB()
-for doc in docs:
-    emb = get_gemini_embedding(doc)
-    db.add(doc, emb)
+# for doc in docs:
+#     emb = get_gemini_embedding(doc)
+#     db.add(doc, emb)
 db.build_index()
 
-problem = input("Ask Anything ?")
+problem = input("Ask Anything ? ")
 answer = run_chain_of_thought_rag(problem, db)
 print("🧠 Final Answer:\n", answer)
