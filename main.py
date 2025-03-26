@@ -39,6 +39,8 @@ db = SimpleVectorDB()
 #     db.add(doc, emb)
 db.build_index()
 
+open("cot-out.md", "w").close()  # Clears Output
+
 problem = input("Ask Anything ? ")
 answer = run_chain_of_thought_rag(problem, db)
 print("🧠 Final Answer:\n", answer)
